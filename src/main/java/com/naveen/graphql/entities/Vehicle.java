@@ -74,7 +74,7 @@
 	    @Column(name = "launch_date")
 	    private LocalDate launchDate;
 
-//	    private transient  String formattedDate;
+   private transient  String formattedDate;
 //
 //	    // Getter and setter
 //	    public String getFormattedDate() {
