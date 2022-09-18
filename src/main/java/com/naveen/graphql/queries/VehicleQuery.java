@@ -25,3 +25,6 @@ public class VehicleQuery implements GraphQLQueryResolver {
         return this.vehicleService.getVehicle(id);
     }
 }
+
+
+//https://graphql.org/learn/queries/
