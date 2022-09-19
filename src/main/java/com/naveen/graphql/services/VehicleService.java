@@ -66,3 +66,15 @@ public class VehicleService {
 //Understanding the isolation level property is essential for us to be able to reason about trade-offs of performance vs. consistency guarantees. However, before going 
 //into details about isolation level, remember that as all the statements in InnoDB are transactions, they can be committed or rolled back. If no transaction is specified,
 // the database creates one, and based on the autocommit property, it may be committed or not
+
+
+
+
+//3. Why and Where to Use a Transaction?
+//Now that we understand better what a transaction is and its different properties let's talk about read-only transactions. 
+//As explained earlier, in the InnoDB engine, all statements are transactions, and therefore, they may involve things like
+//locking and snapshots.
+//However, we can see that some of the overhead related to transaction coordination, such as marking rows with transaction IDs 
+//and other internal structures, may not be necessary for plain queries. That's where read-only transactions come into play.
+//
+//We can explicitly define a read-only transaction using the syntax START TRANSACTION READ ONLY. MySQL also tries to detect read-only transitions automatically. But further optimizations can be applied when declaring one explicitly. Read intense applications can leverage those optimizations and save resource utilization on our database cluster.
