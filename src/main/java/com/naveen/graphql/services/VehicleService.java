@@ -41,3 +41,28 @@ public class VehicleService {
         return this.vehicleRepository.findById(id);
     }
 }
+
+
+
+
+//Spring creates proxies for classes that declare @Transactional on the class itself or on members. 
+//The proxy is mostly invisible at runtime. It provides a way for Spring to inject behaviors before, after, or around method
+//calls into the object being proxied. Transaction management is just one example of the behaviors that can be hooked in.
+//Security checks are another. And you can provide your own, too, for things like logging. So when you annotate a method with
+//@Transactional, Spring dynamically creates a proxy that implements the same interface(s) as the class you're annotating. And
+//when clients make calls into your object, the calls are intercepted and the behaviors injected via the proxy mechanism.
+
+
+
+
+
+
+//A transaction is an atomic operation that consists of one or more statements. It's atomic because all statements within this operation either succeed 
+//(are committed) or fail (are rolled back), which means all or nothing. The letter ‘A' of the ACID properties represents the atomicity of transactions.
+//
+//Another critical thing to understand is that all statements in the InnoDB engine become a transaction, if not explicitly, then implicitly. Such a concept gets
+// a lot harder to understand when we add concurrency to the equation. Then, we need to clarify another ACID property, the ‘I' of Isolation.
+//
+//Understanding the isolation level property is essential for us to be able to reason about trade-offs of performance vs. consistency guarantees. However, before going 
+//into details about isolation level, remember that as all the statements in InnoDB are transactions, they can be committed or rolled back. If no transaction is specified,
+// the database creates one, and based on the autocommit property, it may be committed or not
