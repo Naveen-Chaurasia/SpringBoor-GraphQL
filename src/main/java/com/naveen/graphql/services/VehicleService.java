@@ -77,4 +77,13 @@ public class VehicleService {
 //However, we can see that some of the overhead related to transaction coordination, such as marking rows with transaction IDs 
 //and other internal structures, may not be necessary for plain queries. That's where read-only transactions come into play.
 //
-//We can explicitly define a read-only transaction using the syntax START TRANSACTION READ ONLY. MySQL also tries to detect read-only transitions automatically. But further optimizations can be applied when declaring one explicitly. Read intense applications can leverage those optimizations and save resource utilization on our database cluster.
+//We can explicitly define a read-only transaction using the syntax START TRANSACTION READ ONLY. MySQL also tries to detect read-only transitions automatically. 
+//But further optimizations can be applied when declaring one explicitly. Read intense applications can leverage those
+//optimizations and save resource utilization on our database cluster.
+//
+//
+//
+//We need to know that dealing with persistence layers in our application may involve many layers of abstractions. Each of those layers has a different responsibility. However, to simplify, let's say that in the end, those layers impact either how our application deals with the database or how the database deals with the data manipulation.
+//
+//Of course, not all applications have all those layers, but it represents a good generalization. Assuming we have a Spring application, in short, these layers serve the purpose of:
+//
